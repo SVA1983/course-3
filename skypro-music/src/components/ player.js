@@ -1,4 +1,5 @@
-import "../App.js"
+import "../App.js";
+import "./player.css";
 import React from 'react';
 const BarAudioPlayer = () => {
   return (

@@ -1,4 +1,5 @@
-import "../App.js"
+import "../App.js";
+import "./recom.css";
 import React from 'react';
 const Recom = () => {
   return (

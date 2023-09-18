@@ -1,4 +1,5 @@
-import "../App.js"
+import "../App.js";
+import "./nav.css";
 import React from 'react';
 const Navigation = () => {
   return (
