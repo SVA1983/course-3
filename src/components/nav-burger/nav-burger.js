@@ -1,11 +1,12 @@
 import "../../App.js";
 import "./nav-burger.css";
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useState } from 'react';
 const Burger = () => { 
   const [visible, setVisible] = useState(false); 
   const MenuClick = () => 
     setVisible(!visible) ;
+    
   return ( 
     
     <nav className="main__nav nav">
