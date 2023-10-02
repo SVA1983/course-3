@@ -123,8 +123,7 @@ const TrackName = (props) => {
   return (
     <div className="track__title-text">
       <a className="track__title-link" href="http://"
-                    >{props.name} <span className="track__title-span">{props.description}</span
-                  ></a>
+        >{props.name} <span className="track__title-span">{props.description}</span></a>
     </div>
     
 
@@ -147,10 +146,8 @@ const AlbumName = (props) => {
 const [visible, setVisible] = useState(false); 
   return (
     <div className="track__album">
-              <a className="track__album-link" href="http://"
-                >{props.name}</a
-              >
-            </div>
+      <a className="track__album-link" href="http://">{props.name}</a >
+    </div>
 
   )
 

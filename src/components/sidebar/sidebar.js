@@ -1,9 +1,25 @@
 import "../../App.js";
 import "./sidebar.css";
 import React from 'react';
-const Recom = () => {
+const SideBar = () => {
   return (
     <div className="main__sidebar sidebar">
+    < SidePersonal />
+    <div className="sidebar__block">
+      <div className="sidebar__list">
+       <SideBarItem img="img/playlist01.png" />
+       <SideBarItem img="img/playlist02.png" />
+       <SideBarItem img="img/playlist03.png" />
+      </div>
+    </div>
+  </div>
+    );
+}; 
+
+export default SideBar
+
+const SidePersonal = () => {
+  return (
     <div className="sidebar__personal">
       <p className="sidebar__personal-name">Sergey.Ivanov</p>
       <div className="sidebar__icon">
@@ -12,40 +28,21 @@ const Recom = () => {
         </svg>
       </div>
     </div>
-    <div className="sidebar__block">
-      <div className="sidebar__list">
-        <div className="sidebar__item">
+  )
+}
+const SideBarItem = (props) => {
+  return (
+    <div className="sidebar__item">
           <a className="sidebar__link" href="#">
             <img
               className="sidebar__img"
-              src="img/playlist01.png"
+              
+              src={props.img}
+              
               alt="day's playlist"
             />
           </a>
         </div>
-        <div className="sidebar__item">
-          <a className="sidebar__link" href="#">
-            <img
-              className="sidebar__img"
-              src="img/playlist02.png"
-              alt="day's playlist"
-            />
-          </a>
-        </div>
-        <div className="sidebar__item">
-          <a className="sidebar__link" href="#">
-            <img
-              className="sidebar__img"
-              src="img/playlist03.png"
-              alt="day's playlist"
-            />
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-    );
 
-}; 
-
-export default Recom
+  )
+}

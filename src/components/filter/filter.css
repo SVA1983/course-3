@@ -32,3 +32,45 @@
     align-items: center;
     margin-bottom: 51px;
   }
+  .autor-item-list {
+    width: 248px;
+    height: 305px;
+    top: 288px;
+    left: 445px;
+    padding: 34px;
+    border-radius: 12px;
+    gap: 10px;
+    background-color: #313131;
+    position: absolute;
+    
+
+  }
+  .year-item-list {
+    width: 248px;
+    height: 305px;
+    top: 288px;
+    left: 600px;
+    padding: 34px;
+    border-radius: 12px;
+    gap: 10px;
+    background-color: #313131;
+    position: absolute;
+    
+
+  }
+  .genre-item-list {
+    width: 196px;
+    height: 221px;
+    top: 288px;
+    left: 752px;
+    padding: 34px;
+    border-radius: 12px;
+    gap: 10px;
+    background-color: #313131;
+    position: absolute;
+    
+
+  }
+  .filter__link {
+    color: #ffffff;
+  }

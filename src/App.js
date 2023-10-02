@@ -2,7 +2,7 @@
 import './App.css';
 import BarAudioPlayer from './components/player/ player';
 import Burger from './components/nav-burger/nav-burger';
-import Recom from './components/sidebar/sidebar';
+import SideBar from './components/sidebar/sidebar';
 import Search from './components/search/search';
 import Content from './components/content/content';
 import Filter from './components/filter/filter';
@@ -24,7 +24,7 @@ function App() {
       < Content />
     </div>
       </div>
-        <Recom />
+        <SideBar />
         </main>
          <BarAudioPlayer />
         <footer className="footer"></footer>

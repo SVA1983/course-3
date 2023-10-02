@@ -1,6 +1,6 @@
 import "../../App.js";
 import "./nav-burger.css";
-import React, { useEffect } from 'react';
+
 import { useState } from 'react';
 const Burger = () => { 
   const [visible, setVisible] = useState(false); 
