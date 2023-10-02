@@ -1,15 +1,19 @@
 import "../../App.js";
 import "./sidebar.css";
 import React from 'react';
+import Skeleton from 'react-loading-skeleton';
+import 'react-loading-skeleton/dist/skeleton.css';
+import { useState } from 'react';
+import BarItem from "./bar-content.js";
 const SideBar = () => {
+  
   return (
     <div className="main__sidebar sidebar">
     < SidePersonal />
     <div className="sidebar__block">
       <div className="sidebar__list">
-       <SideBarItem img="img/playlist01.png" />
-       <SideBarItem img="img/playlist02.png" />
-       <SideBarItem img="img/playlist03.png" />
+       <SideBarItem />
+       
       </div>
     </div>
   </div>
@@ -19,6 +23,7 @@ const SideBar = () => {
 export default SideBar
 
 const SidePersonal = () => {
+  
   return (
     <div className="sidebar__personal">
       <p className="sidebar__personal-name">Sergey.Ivanov</p>
@@ -30,19 +35,30 @@ const SidePersonal = () => {
     </div>
   )
 }
-const SideBarItem = (props) => {
+const SideBarItem = () => { 
+  const [visible, setVisible] = useState(false); 
+  setTimeout(() => {
+    setVisible(true);
+  }, 3000);
   return (
-    <div className="sidebar__item">
-          <a className="sidebar__link" href="#">
-            <img
-              className="sidebar__img"
-              
-              src={props.img}
-              
-              alt="day's playlist"
-            />
-          </a>
-        </div>
-
+  BarItem.map((item) => {
+    return (
+     
+        <div className="sidebar__item">
+              <a className="sidebar__link" href="#">
+                <img
+                  className="sidebar__img"
+                  
+                  src={visible? item.barImg : "img/SkeletonPlaylist.png"}
+                  
+                  alt="day's playlist"
+                />
+              </a>
+            </div>
+    
+      
+    )
+  })
   )
+
 }
