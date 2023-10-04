@@ -15,7 +15,13 @@
     border-radius: 60px;
     padding: 6px 20px;
   }
+  .filter__button:hover {
+    color:#B672FF
+  }
   
+  .active {
+    color:#B672FF
+  }
   .filter__button:not(:last-child) {
     margin-right: 10px;
   }
@@ -33,7 +39,7 @@
     margin-bottom: 51px;
   }
   .autor-item-list {
-    width: 248px;
+    width: 300px;
     height: 305px;
     top: 288px;
     left: 445px;
@@ -42,19 +48,25 @@
     gap: 10px;
     background-color: #313131;
     position: absolute;
+    display: flex;
+    flex-direction: column;
+  
+    overflow: scroll;
+    
     
 
   }
   .year-item-list {
     width: 248px;
-    height: 305px;
+    
     top: 288px;
     left: 600px;
-    padding: 34px;
+    padding-left: 34px;
     border-radius: 12px;
     gap: 10px;
     background-color: #313131;
     position: absolute;
+    opacity: 1;
     
 
   }
@@ -62,15 +74,54 @@
     width: 196px;
     height: 221px;
     top: 288px;
-    left: 752px;
     padding: 34px;
     border-radius: 12px;
     gap: 10px;
     background-color: #313131;
     position: absolute;
+    overflow: scroll;
     
-
   }
   .filter__link {
     color: #ffffff;
+  }
+ 
+  
+  .year__list {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 180px;
+    height: 237px;
+    gap: 24px
+  }
+  .autor__item {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    width: 215px;
+    
+
+  }
+  .genre__list {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px
+  }
+  .filter__link {
+    font-family: StratosSkyeng;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0em;
+    text-align: left;
+    
+
+  }
+  .filter__link:hover {
+    text-decoration: underline;
+    color: #B672FF;
   }

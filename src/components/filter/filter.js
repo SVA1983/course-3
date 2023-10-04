@@ -2,78 +2,85 @@
 import "../../App.js";
 import "./filter.css";
 import React from 'react';
-import "../../App.js";
 import { useState } from 'react';
+import users from "../content/content-item.js";
 const Filter = () => {
-  return (
-    <div className="centerblock__filter filter">
-      <div className="filter__title">Искать по:</div>
-     < AutorFilter />
-     < YearFilter/>
-     <GenreFilter /> 
-    </div>
- 
-    );
 
-}; 
-
-export default Filter
+  const [autorFilter, setAutorVisible] = useState(false); 
 
 const AutorFilter = () => {
-  const [visible, setVisible] = useState(false); 
+  
   const FilterClick = () => {
-    setVisible(!visible);
+    setAutorVisible(!autorFilter);
+    setYearVisible(null);
+    setGenreVisible(null)
   }
   return (
     <div className="filter__button button-author _btn-text" onClick={FilterClick}>
         исполнителю
-        {visible && <AutorItemList/>}
+        {autorFilter && <AutorItemList/>}
       </div> 
   )
 }
+const [yearFilter, setYearVisible] = useState(false); 
 const YearFilter = () => {
-  const [visible, setVisible] = useState(false); 
+  
   const FilterClick = () => {
-    setVisible(!visible);
+    setYearVisible(!yearFilter);
+    setAutorVisible(null);
+    setGenreVisible(null);
+    
+  
   }
   return (
     <div className="filter__button button-year _btn-text" onClick={FilterClick}>
         году выпуска
-        {visible && <YearItemList/> }
+        {yearFilter && <YearItemList/> }
+        {!autorFilter}
       </div> 
   )
 }
+const [genreFilter, setGenreVisible] = useState(false); 
 const GenreFilter = () => {
-  const [visible, setVisible] = useState(false); 
   const FilterClick = () => {
-    setVisible(!visible);
+    setGenreVisible(!genreFilter);
+    setYearVisible(null);
+    setAutorVisible(null);
   }
   return (
     <div className="filter__button button-genre _btn-text" onClick={FilterClick}>жанру
-    {visible && <GenreItemList/>}
+    {genreFilter && <GenreItemList/>}
     </div>
     
       
   )
 }
+ 
+  return (
+    <div className="centerblock__filter filter">
+      <div className="filter__title">Искать по:</div>
+          <AutorFilter/>
+          <YearFilter/>
+          <GenreFilter/>
+    </div>    
+  );
+}; 
+
+export default Filter;
+
+
 
 const AutorItemList = () => {
-  return (
-    <div className="autor-item-list">
-              <ul className="autor__list">
-                <li className="autor__item">
-                  <a href="#" className="filter__link">автор1</a>
-                </li>
-                <li className="autor__item">
-                  <a href="#" className="filter__link">автор2</a>
-                </li>
-                <li className="autor__item">
-                  <a href="#" className="filter__link">автор3</a>
-                </li>
-              </ul>
-            </div>
-
-  )
+  return ( 
+        <div className="autor-item-list">
+                  <ul className="autor__list">
+                    <li className="autor__item">
+                    <AutorArr/>
+                      
+                    </li>
+                  </ul>
+          </div>
+      )
 }
 const YearItemList = () => {
   return (
@@ -107,8 +114,28 @@ const GenreItemList = () => {
                 <li className="genre__item">
                   <a href="#" className="filter__link">Джаз</a>
                 </li>
+                <li className="genre__item">
+                  <a href="#" className="filter__link">Хиты</a>
+                </li>
+                <li className="genre__item">
+                  <a href="#" className="filter__link">Новинки</a>
+                </li>
+                <li className="genre__item">
+                  <a href="#" className="filter__link">Зарубежные</a>
+                </li>
               </ul>
             </div>
 
   )
+}
+
+const AutorArr = () => {
+  return (
+    users.map((user) => {
+      return ( 
+        <a href="#" className="filter__link">{user.autorName}</a>
+      )
+    })
+  )
+  
 }
