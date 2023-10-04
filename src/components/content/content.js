@@ -2,7 +2,7 @@ import "../../App.js";
 import "./content.css";
 import { useState } from 'react';
 import React from 'react';
-import Skeleton, {SkeletonTheme} from 'react-loading-skeleton';
+import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css'
 import users from "./content-item.js";
 
@@ -38,7 +38,7 @@ const PlaylistItems = () => {
             </div>
             <div className="track__title-text">
               <a className="track__title-link" href="http://"
-                >{visible ? user.trackName : <Skeleton SkeletonTheme baseColor="#202020" highlightColor="#444" width={200}/>}<span className="track__title-span">{visible ? user.description : ""}</span
+                >{visible ? user.trackName : <Skeleton  SkeletonTheme  baseColor="#202020" highlightColor="#444" width={200}/>}<span className="track__title-span">{visible ? user.description : ""}</span
               ></a>
             </div>
           </div>
