@@ -5,6 +5,8 @@ const users = [
         autorName: "Nerzo",
         albumName: "Welcome Reality",
         trackTime: "4:44",
+        genre: "Рок",
+        id: 1,
     },
     {
         trackImg: "img/icon/sprite.svg#icon-note",
@@ -12,6 +14,8 @@ const users = [
         autorName: "Dynoro, Outwork, Mr. Gee",
         albumName: "Elektro",
         trackTime: "2:22",
+        genre: "Поп",
+        id: 2,
     },
     {
         trackImg: "img/icon/sprite.svg#icon-note",
@@ -19,6 +23,8 @@ const users = [
         autorName: "Ali Bakgor",
         albumName: "I’m Fire",
         trackTime: "2:22",
+        genre: "Классика",
+        id: 3,
     },
     {
         trackImg: "img/icon/sprite.svg#icon-note",
@@ -27,6 +33,9 @@ const users = [
         albumName: "Non Stop",
         description: "(Remix)",
         trackTime: "4:12",
+        genre: "Детское",
+        id: 4,
+
     },
     {
         trackImg: "img/icon/sprite.svg#icon-note",
@@ -35,6 +44,8 @@ const users = [
         albumName: "Run Run",
         description: "(feat. AR/CO)",
         trackTime: "2:54",
+        genre: "Релакс",
+        id: 5
     },
     {
         trackImg: "img/icon/sprite.svg#icon-note",
@@ -43,6 +54,8 @@ const users = [
         albumName: "Eyes on Fire",
         description: "(Zeds Dead Remix)",
         trackTime: "5:20",
+        genre: "Танцевальные",
+        id: 6
     },
     {
         trackImg: "img/icon/sprite.svg#icon-note",
@@ -51,6 +64,8 @@ const users = [
         albumName: "Mucho Bien",
         description: "(Hi Profile Remix)",
         trackTime: "3:41",
+        genre: "Зарубежное",
+        id: 7
     },
     {
         trackImg: "img/icon/sprite.svg#icon-note",
@@ -59,6 +74,8 @@ const users = [
         albumName: "Captivating",
         description: "",
         trackTime: "1:48",
+        genre: "Хиты",
+        id: 8
     },
     {
         trackImg: "img/icon/sprite.svg#icon-note",
@@ -67,6 +84,8 @@ const users = [
         albumName: "Captivating",
         description: "",
         trackTime: "1:48",
+        genre: "Хиты",
+        id: 9
     },
     {
         trackImg: "img/icon/sprite.svg#icon-note",
@@ -75,6 +94,8 @@ const users = [
         albumName: "Captivating",
         description: "",
         trackTime: "1:48",
+        genre: "Хиты",
+        id: 10
     },
     {
         trackImg: "img/icon/sprite.svg#icon-note",
@@ -83,6 +104,7 @@ const users = [
         albumName: "Captivating",
         description: "",
         trackTime: "1:48",
+        id: 11
     },
     {
         trackImg: "img/icon/sprite.svg#icon-note",
@@ -91,6 +113,7 @@ const users = [
         albumName: "Captivating",
         description: "",
         trackTime: "1:48",
+        id: 12
     },
     {
         trackImg: "img/icon/sprite.svg#icon-note",
@@ -99,6 +122,7 @@ const users = [
         albumName: "Captivating",
         description: "",
         trackTime: "1:48",
+        id: 13
     },
     {
         trackImg: "img/icon/sprite.svg#icon-note",
@@ -107,6 +131,7 @@ const users = [
         albumName: "Captivating",
         description: "",
         trackTime: "1:48",
+        id: 14
     },
    
 ]

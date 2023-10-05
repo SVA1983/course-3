@@ -2,73 +2,60 @@
 import "../../App.js";
 import "./filter.css";
 import React from 'react';
+import "../../App.js";
 import { useState } from 'react';
 import users from "../content/content-item.js";
 const Filter = () => {
-
-  const [autorFilter, setAutorVisible] = useState(false); 
-
-const AutorFilter = () => {
-  
-  const FilterClick = () => {
-    setAutorVisible(!autorFilter);
-    setYearVisible(null);
-    setGenreVisible(null)
-  }
+  const [selectedCategory, setVisible] = useState(null); 
+ 
   return (
-    <div className="filter__button button-author _btn-text" onClick={FilterClick}>
-        исполнителю
-        {autorFilter && <AutorItemList/>}
+    <div className="centerblock__filter filter">
+      <div className="filter__title">Искать по:</div>
+        <AutorFilter autor="исполнителю"
+        onClick={() => {selectedCategory != "autor" ? setVisible("autor") : setVisible(null)}}
+        isOpen={selectedCategory === "autor"}/>
+        <YearFilter year="году выпуска"
+        onClick={() => {selectedCategory != "year" ? setVisible("year") : setVisible(null)}}
+        isOpen={selectedCategory === "year"}/>
+        <GenreFilter genre="жанру"
+        onClick={() => {selectedCategory != "genre" ? setVisible("genre") : setVisible(null)}}
+        isOpen={selectedCategory === "genre"}/>
+        ;
+       
+      </div>
+    );
+
+}; 
+
+export default Filter
+
+const AutorFilter = (props) => {
+  
+  return (
+    <div className={props.isOpen ? "filter__button button-year _btn-text active" : "filter__button button-year _btn-text"} onClick={props.onClick}>
+        {props.autor}
+        {props.isOpen && <AutorItemList/> } 
       </div> 
   )
 }
-const [yearFilter, setYearVisible] = useState(false); 
-const YearFilter = () => {
-  
-  const FilterClick = () => {
-    setYearVisible(!yearFilter);
-    setAutorVisible(null);
-    setGenreVisible(null);
-    
-  
-  }
+
+const YearFilter = (props) => {
   return (
-    <div className="filter__button button-year _btn-text" onClick={FilterClick}>
-        году выпуска
-        {yearFilter && <YearItemList/> }
-        {!autorFilter}
+    <div className={props.isOpen ? "filter__button button-year _btn-text active" : "filter__button button-year _btn-text"} onClick={props.onClick}>
+        {props.year}
+        {props.isOpen && <YearItemList/> }
       </div> 
   )
 }
-const [genreFilter, setGenreVisible] = useState(false); 
-const GenreFilter = () => {
-  const FilterClick = () => {
-    setGenreVisible(!genreFilter);
-    setYearVisible(null);
-    setAutorVisible(null);
-  }
+const GenreFilter = (props) => {
   return (
-    <div className="filter__button button-genre _btn-text" onClick={FilterClick}>жанру
-    {genreFilter && <GenreItemList/>}
+    <div className={props.isOpen ? "filter__button button-year _btn-text active" : "filter__button button-year _btn-text"} onClick={props.onClick}>{props.genre}
+    {props.isOpen && <GenreItemList/>}
     </div>
     
       
   )
 }
- 
-  return (
-    <div className="centerblock__filter filter">
-      <div className="filter__title">Искать по:</div>
-          <AutorFilter/>
-          <YearFilter/>
-          <GenreFilter/>
-    </div>    
-  );
-}; 
-
-export default Filter;
-
-
 
 const AutorItemList = () => {
   return ( 
@@ -103,37 +90,36 @@ const YearItemList = () => {
 
 const GenreItemList = () => {
   return (
-    <div className="genre-item-list">
-              <ul className="genre__list">
-                <li className="genre__list__item">
-                  <a href="#" className="filter__link">Поп</a>
-                </li>
-                <li className="genre__item">
-                  <a href="#" className="filter__link">Рок</a>
-                </li>
-                <li className="genre__item">
-                  <a href="#" className="filter__link">Джаз</a>
-                </li>
-                <li className="genre__item">
-                  <a href="#" className="filter__link">Хиты</a>
-                </li>
-                <li className="genre__item">
-                  <a href="#" className="filter__link">Новинки</a>
-                </li>
-                <li className="genre__item">
-                  <a href="#" className="filter__link">Зарубежные</a>
-                </li>
-              </ul>
-            </div>
-
+  
+      <div className="genre-item-list">
+                <ul className="genre__list">
+                  <li className="genre__list__item">
+                  <GenreArr/>
+                  </li>
+                </ul>
+              </div>
+  
   )
-}
 
+ 
+  
+}
 const AutorArr = () => {
   return (
     users.map((user) => {
       return ( 
         <a href="#" className="filter__link">{user.autorName}</a>
+      )
+    })
+  )
+  
+}
+
+const GenreArr = () => {
+  return (
+    users.map((user) => {
+      return ( 
+        <a href="#" className="filter__link">{user.genre}</a>
       )
     })
   )
