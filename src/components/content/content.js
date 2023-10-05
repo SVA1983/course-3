@@ -33,20 +33,20 @@ const PlaylistItems = () => {
           <div className="track__title">
             <div className="track__title-image">
               <svg className="track__title-svg" alt="music">
-                <use xlinkHref={user.trackImg}></use>
+                <use key={user.id} xlinkHref={user.trackImg}></use>
               </svg>
             </div>
             <div className="track__title-text">
-              <a className="track__title-link" href="http://"
+              <a className="track__title-link" href="http://" key={user.id}
                 >{visible ? user.trackName : <Skeleton  SkeletonTheme  baseColor="#202020" highlightColor="#444" width={200}/>}<span className="track__title-span">{visible ? user.description : ""}</span
               ></a>
             </div>
           </div>
           <div className="track__author">
-            <a className="track__author-link" href="http://">{visible ? user.autorName : <Skeleton SkeletonTheme baseColor="#202020" highlightColor="#444" width={200}/>}</a>
+            <a className="track__author-link" href="http://" key={user.id}>{visible ? user.autorName : <Skeleton SkeletonTheme baseColor="#202020" highlightColor="#444" width={200}/>}</a>
           </div>
           <div className="track__album">
-            <a className="track__album-link" href="http://"
+            <a className="track__album-link" href="http://" key={user.id}
               >{visible ? user.albumName : <Skeleton SkeletonTheme baseColor="#202020" highlightColor="#444" width={310}/>}</a
             >
           </div>
@@ -54,7 +54,7 @@ const PlaylistItems = () => {
             <svg className="track__time-svg" alt="time">
               <use xlinkHref="img/icon/sprite.svg#icon-like"></use>
             </svg>
-            <span className="track__time-text">{visible ? user.trackTime : ""}</span>
+            <span className="track__time-text" key={user.id}>{visible ? user.trackTime : ""}</span>
           </div>
         </div>
       </div>

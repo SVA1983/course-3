@@ -17,10 +17,12 @@
   }
   .filter__button:hover {
     color:#B672FF
+    
   }
   
   .active {
-    color:#B672FF
+    color:#B672FF;
+    border: 1px solid #B672FF;
   }
   .filter__button:not(:last-child) {
     margin-right: 10px;
@@ -80,6 +82,9 @@
     background-color: #313131;
     position: absolute;
     overflow: scroll;
+    display: flex;
+    flex-direction: column;
+  
     
   }
   .filter__link {
@@ -124,4 +129,11 @@
   .filter__link:hover {
     text-decoration: underline;
     color: #B672FF;
+  }
+  .genre__list__item {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    
+    
   }
