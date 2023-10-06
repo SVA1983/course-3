@@ -4,7 +4,7 @@ import React from 'react';
 import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
 import { useState } from 'react';
-import BarItem from "./bar-content.js";
+import BarItem from "./bar-content.jsx";
 const SideBar = () => {
   
   return (
@@ -44,10 +44,10 @@ const SideBarItem = () => {
   BarItem.map((item) => {
     return (
      
-        <div className="sidebar__item">
+        <div className="sidebar__item" key={item.id}>
               <a className="sidebar__link" href="#">
                 <img
-                  className="sidebar__img"
+                  className="sidebar__img" 
                   
                   src={visible? item.barImg : "img/SkeletonPlaylist.png"}
                   

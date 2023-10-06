@@ -108,7 +108,7 @@ const AutorArr = () => {
   return (
     users.map((user) => {
       return ( 
-        <a href="#" className="filter__link">{user.autorName}</a>
+        <a href="#" className="filter__link" key={user.id}>{user.autorName}</a>
       )
     })
   )
@@ -119,7 +119,7 @@ const GenreArr = () => {
   return (
     users.map((user) => {
       return ( 
-        <a href="#" className="filter__link">{user.genre}</a>
+        <a href="#" className="filter__link" key={user.id}>{user.genre}</a>
       )
     })
   )
