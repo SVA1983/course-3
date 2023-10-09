@@ -1,12 +1,11 @@
 import "../../App.js";
 import "./sidebar.css";
 import React from 'react';
-import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
 import { useState } from 'react';
 import BarItem from "./bar-content.jsx";
+
 const SideBar = () => {
-  
   return (
     <div className="main__sidebar sidebar">
     < SidePersonal />

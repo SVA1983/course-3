@@ -1,5 +1,5 @@
 import "../../App.js";
-import "./content.css";
+import * as S from "./content-style.js"
 import { useState } from 'react';
 import React from 'react';
 import Skeleton from 'react-loading-skeleton';
@@ -7,15 +7,14 @@ import 'react-loading-skeleton/dist/skeleton.css'
 import users from "./content-item.js";
 
 
+
+
 const Content = () => {
   return (
-    <div className="content__playlist playlist">
+    <S.ContentPlaylist>
         <PlaylistItems />
-      </div>
-  )
-
-       
-
+      </S.ContentPlaylist>
+  )       
 }; 
 
 export default Content
@@ -27,40 +26,45 @@ const PlaylistItems = () => {
   }, 3000);
   return (
     users.map((user) => {
-      return (<div className="content__playlist playlist">
-      <div className="playlist__item">
-        <div className="playlist__track track">
-          <div className="track__title">
-            <div className="track__title-image">
-              <svg className="track__title-svg" alt="music">
-                <use key={user.id} xlinkHref={user.trackImg}></use>
-              </svg>
-            </div>
-            <div className="track__title-text">
-              <a className="track__title-link" href="http://" key={user.id}
-                >{visible ? user.trackName : <Skeleton  SkeletonTheme  baseColor="#202020" highlightColor="#444" width={200}/>}<span className="track__title-span">{visible ? user.description : ""}</span
-              ></a>
-            </div>
-          </div>
-          <div className="track__author">
-            <a className="track__author-link" href="http://" key={user.id}>{visible ? user.autorName : <Skeleton SkeletonTheme baseColor="#202020" highlightColor="#444" width={200}/>}</a>
-          </div>
-          <div className="track__album">
-            <a className="track__album-link" href="http://" key={user.id}
-              >{visible ? user.albumName : <Skeleton SkeletonTheme baseColor="#202020" highlightColor="#444" width={310}/>}</a
-            >
-          </div>
-          <div className="track__time">
-            <svg className="track__time-svg" alt="time">
-              <use xlinkHref="img/icon/sprite.svg#icon-like"></use>
-            </svg>
-            <span className="track__time-text" key={user.id}>{visible ? user.trackTime : ""}</span>
-          </div>
-        </div>
-      </div>
+      return (
+      <S.ContentPlaylist>
+      <S.PlaylistItem>
+        <S.PlaylistTrack>
+          <S.TrackTitle>
+            <S.TrackTitleImg >
+              <S.TrackTitleSvg alt="music">
+                <S.TrackImg key={user.id} xlinkHref={user.trackImg}></S.TrackImg>
+              </S.TrackTitleSvg>
+            </S.TrackTitleImg >
+            <S.TrackTitleText>
+              <S.TrackTitleLink href="http://" key={user.id}
+                >{visible ? user.trackName : <Skeleton  SkeletonTheme  baseColor="#202020" highlightColor="#444" width={200}/>}
+                <S.TrackDiscription>{visible ? user.description : ""}
+                </S.TrackDiscription>
+              </S.TrackTitleLink>
+            </S.TrackTitleText>
+          </S.TrackTitle>
+          <S.TrackAutor>
+            <S.TrackAutorLink href="http://" key={user.id}>
+              {visible ? user.autorName : <Skeleton SkeletonTheme baseColor="#202020" highlightColor="#444" width={200}/>}
+              </S.TrackAutorLink>
+          </S.TrackAutor>
+          <S.TrackAlbum>
+            <S.TrackAlbumLink href="http://" key={user.id}
+              >{visible ? user.albumName : <Skeleton SkeletonTheme baseColor="#202020" highlightColor="#444" width={310}/>}
+              </S.TrackAlbumLink>
+          </S.TrackAlbum>
+          <S.TrackTime>
+            <S.TrackTimeSvg alt="time">
+              <S.TrackLikeImg  xlinkHref="img/icon/sprite.svg#icon-like"></S.TrackLikeImg >
+            </S.TrackTimeSvg>
+            <S.TimeText key={user.id}>{visible ? user.trackTime : ""}</S.TimeText>
+          </S.TrackTime>
+        </S.PlaylistTrack>
+      </S.PlaylistItem>
 
     
-    </div>)
+    </S.ContentPlaylist>)
     })
   )
 }
