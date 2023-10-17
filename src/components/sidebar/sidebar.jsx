@@ -1,21 +1,22 @@
 import "../../App.js";
-import "./sidebar.css";
+import * as S from "./sidebar-style.js";
 import React from 'react';
 import 'react-loading-skeleton/dist/skeleton.css';
 import { useState } from 'react';
 import BarItem from "./bar-content.jsx";
 
+
 const SideBar = () => {
   return (
-    <div className="main__sidebar sidebar">
+    <S.Sidebar>
     < SidePersonal />
-    <div className="sidebar__block">
-      <div className="sidebar__list">
+    <S.SidebarBlock >
+      <S.SidebarList>
        <SideBarItem />
        
-      </div>
-    </div>
-  </div>
+      </S.SidebarList>
+    </S.SidebarBlock >
+  </S.Sidebar>
     );
 }; 
 
@@ -24,14 +25,14 @@ export default SideBar
 const SidePersonal = () => {
   
   return (
-    <div className="sidebar__personal">
-      <p className="sidebar__personal-name">Sergey.Ivanov</p>
-      <div className="sidebar__icon">
-        <svg alt="logout">
-          <use xlinkHref="img/icon/sprite.svg#logout"></use>
-        </svg>
-      </div>
-    </div>
+    <S.SidebarPersonal>
+      <S.SidebarPersonalName>Sergey.Ivanov</S.SidebarPersonalName>
+      <S.SidebarIcon>
+        <S.SidebarSvg alt="logout">
+          <S.SidebarPersonalIcon xlinkHref="img/icon/sprite.svg#logout"></S.SidebarPersonalIcon>
+        </S.SidebarSvg>
+      </S.SidebarIcon>
+    </S.SidebarPersonal>
   )
 }
 const SideBarItem = () => { 
@@ -43,17 +44,16 @@ const SideBarItem = () => {
   BarItem.map((item) => {
     return (
      
-        <div className="sidebar__item" key={item.id}>
-              <a className="sidebar__link" href="#">
-                <img
-                  className="sidebar__img" 
+        <S.SidebarItem key={item.id}>
+              <S.SidebarLink href="#">
+                <S.SidebarImg 
                   
                   src={visible? item.barImg : "img/SkeletonPlaylist.png"}
                   
                   alt="day's playlist"
                 />
-              </a>
-            </div>
+              </S.SidebarLink>
+            </S.SidebarItem>
     
       
     )
@@ -61,3 +61,4 @@ const SideBarItem = () => {
   )
 
 }
+

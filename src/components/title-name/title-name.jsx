@@ -1,10 +1,11 @@
 
 import "../../App.js";
-import "./title-name.css";
 import React from 'react';
+import * as  S from "./title-name-style.js"
+
 const TitleName = () => {
   return (
-    <h2 className="centerblock__h2">Треки</h2>
+    <S.CenterblockTitle>Треки</S.CenterblockTitle>
  
     );
 
