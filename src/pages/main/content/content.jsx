@@ -1,4 +1,4 @@
-import "../../App.js";
+import "../../../App"
 import * as S from "./content-style.js"
 import { useState } from 'react';
 import React from 'react';

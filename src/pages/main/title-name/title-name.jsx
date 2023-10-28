@@ -1,5 +1,5 @@
 
-import "../../App.js";
+import "../../../App"
 import React from 'react';
 import * as  S from "./title-name-style.js"
 

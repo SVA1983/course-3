@@ -1,4 +1,4 @@
-import "../../App.js";
+import "../../../App"
 import React from 'react';
 import * as S from "./search-style.js";
 

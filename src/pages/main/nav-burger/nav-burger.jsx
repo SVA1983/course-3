@@ -1,7 +1,7 @@
-
-import "../../App.js";
+import "../../../App"
 import { useState } from 'react';
-import * as S from './nav-burger-style'
+import { Link } from "react-router-dom";
+import * as S from './nav-burger-style.js'
 
 
 export const Burger = () => { 
@@ -37,15 +37,15 @@ const MenuBurger = () => {
               <S.MenuList>
                 <S.MenuItem>
                   <MenuLink item="Главное"
-                  link="#"/>
+                  link="/"/>
                 </S.MenuItem>
                 <S.MenuItem>
                 <MenuLink item="Плейлист"
-                  link="#"/>
+                  link="/favorites"/>
                 </S.MenuItem>
                 <S.MenuItem>
-                <MenuLink item="Войти"
-                  link="../signin.html"/>
+                <MenuLink item="Выйти"
+                  link="/login"/>
                 </S.MenuItem>
               </S.MenuList>
             </S.NavMenu>
@@ -54,7 +54,7 @@ const MenuBurger = () => {
 }
 const MenuLink = (props) => {
   return (
-    <S.MenuLink href={props.link}>{props.item}</S.MenuLink>
+    <S.MenuLink to={props.link}>{props.item}</S.MenuLink>
 
   )
 }

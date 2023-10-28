@@ -1,4 +1,4 @@
-import "../../App.js";
+import "../../../App"
 import * as S from "./sidebar-style.js";
 import React from 'react';
 import 'react-loading-skeleton/dist/skeleton.css';

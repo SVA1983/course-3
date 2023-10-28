@@ -1,5 +1,4 @@
-
-import "../../App.js";
+import "../../../App"
 import React from 'react';
 import { useState } from 'react';
 import users from "../content/content-item.js";

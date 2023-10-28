@@ -1,4 +1,4 @@
-import "../../App.js";
+import "../../../App"
 import * as S from "./player-style.js";
 import React from 'react';
 
