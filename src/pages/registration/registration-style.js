@@ -91,11 +91,11 @@ justify-content: space-around;
     
   };
   &:hover {
-    background-color: ${props => props.activeColor};
+    background-color: ${props => props.activecolor};
     
   };
-color: ${props => props.activeColorText};
-background-color: ${props => props.activeColor};
+color: ${props => props.activecolorText};
+background-color: ${props => props.activecolor};
    
 `;
 export const RegistrationButtonReg = styled(RegistrationButton)`
@@ -105,11 +105,11 @@ background-color: white;
     background-color: #F4F5F6; 
   };
   &:hover {
-    background-color: ${props => props.activeColor};
+    background-color: ${props => props.activecolor};
     
   };
-color: ${props => props.activeColorText};
-background-color: ${props => props.activeColor};
+color: ${props => props.activecolorText};
+background-color: ${props => props.activecolor};
 
 `;
 

@@ -9,7 +9,10 @@ import Filter from './pages/main/filter/filter';
 import TitleName from './pages/main/title-name/title-name'
 import TitlePlaylist from './pages/main/content-title/content-title';
 
+
+
 function Main() {
+ 
   return ( 
     
       <div className="container">

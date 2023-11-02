@@ -37,7 +37,7 @@ export default RegistrationUser;
 const RegButton = (props) => {
     return (
         <S.RegistrationButton
-        activeColor={props.isOpen ? "#271A58" : ""} 
+        activecolor={props.isOpen ? "#271A58" : ""} 
      onClick={props.onClick}>
         {props.come}
         {props.text}   

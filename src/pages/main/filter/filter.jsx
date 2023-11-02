@@ -31,8 +31,8 @@ export default Filter
 const AutorFilter = (props) => {
   
   return (
-    <S.FilterButton  activeColor={props.isOpen ? "#B672FF" : ""} 
-    activeBorder={props.isOpen ? "1px solid #B672FF" : "" } onClick={props.onClick}>
+    <S.FilterButton  activecolor={props.isOpen ? "#B672FF" : ""} 
+    activeborder={props.isOpen ? "1px solid #B672FF" : "" } onClick={props.onClick}>
         {props.autor}
         {props.isOpen && <AutorItemList/> } 
       </S.FilterButton> 
@@ -41,8 +41,8 @@ const AutorFilter = (props) => {
 
 const YearFilter = (props) => {
   return (
-    <S.FilterButton  activeColor={props.isOpen ? "#B672FF" : ""} 
-    activeBorder={props.isOpen ? "1px solid #B672FF" : "" } onClick={props.onClick}>
+    <S.FilterButton  activecolor={props.isOpen ? "#B672FF" : ""} 
+    activeborder={props.isOpen ? "1px solid #B672FF" : "" } onClick={props.onClick}>
         {props.year}
         {props.isOpen && <YearItemList/> }
       </S.FilterButton > 
@@ -50,8 +50,8 @@ const YearFilter = (props) => {
 }
 const GenreFilter = (props) => {
   return (
-    <S.FilterButton  activeColor={props.isOpen ? "#B672FF" : ""} 
-    activeBorder={props.isOpen ? "1px solid #B672FF" : "" } onClick={props.onClick}>{props.genre}
+    <S.FilterButton  activecolor={props.isOpen ? "#B672FF" : ""} 
+    activeborder={props.isOpen ? "1px solid #B672FF" : "" } onClick={props.onClick}>{props.genre}
     {props.isOpen && <GenreItemList/>}
     </S.FilterButton>
     

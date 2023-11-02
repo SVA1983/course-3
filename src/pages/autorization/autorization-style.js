@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 export const AutorizationBox = styled.div`
 width: 366px;
 height: 439px;
@@ -70,7 +71,7 @@ display: flex;
 flex-direction: column;
 margin-top: 63px;
 `;
-export const AutorizationButtonCome = styled.a`
+export const AutorizationButtonCome = styled(Link)`
 width: 278px;
 height: 52px;
 top: 268px;
@@ -87,11 +88,11 @@ justify-content: space-around;
     
   };
   &:hover {
-    background-color: ${props => props.activeColor};
+    background-color: ${props => props.activecolor};
     
   };
-color: ${props => props.activeColorText};
-background-color: ${props => props.activeColor};
+color: ${props => props.activecolorText};
+background-color: ${props => props.activecolor};
    
 `;
 export const AutorizationButtonReg = styled(AutorizationButtonCome)`
@@ -101,11 +102,11 @@ background-color: white;
     background-color: #F4F5F6; 
   };
   &:hover {
-    background-color: ${props => props.activeColor};
+    background-color: ${props => props.activecolor};
     
   };
-color: ${props => props.activeColorText};
-background-color: ${props => props.activeColor};
+color: ${props => props.activecolorText};
+background-color: ${props => props.activecolor};
 
 `;
 

@@ -35,8 +35,8 @@ padding: 6px 20px;
 &:not(:last-child) {
   margin-right: 10px;
 };
-color: ${props => props.activeColor};
-border: ${props => props.activeBorder};
+color: ${props => props.activecolor};
+border: ${props => props.activeborder};
 `;
 export const ItemAutorList = styled.div`
   width: 300px;

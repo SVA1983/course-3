@@ -1,6 +1,7 @@
 import "../../../App"
 import { useState } from 'react';
-import { Link } from "react-router-dom";
+import AutorizationUser from "../../autorization/autorization";
+
 import * as S from './nav-burger-style.js'
 
 
@@ -44,7 +45,7 @@ const MenuBurger = () => {
                   link="/favorites"/>
                 </S.MenuItem>
                 <S.MenuItem>
-                <MenuLink item="Выйти"
+                <MenuLink onClick={<AutorizationUser/>} item="Выйти"
                   link="/login"/>
                 </S.MenuItem>
               </S.MenuList>
@@ -52,9 +53,9 @@ const MenuBurger = () => {
 
   )
 }
-const MenuLink = (props) => {
+export const MenuLink = (props) => {
   return (
-    <S.MenuLink to={props.link}>{props.item}</S.MenuLink>
+    <S.MenuLink onClick={props.onClick} to={props.link}>{props.item}</S.MenuLink>
 
   )
 }

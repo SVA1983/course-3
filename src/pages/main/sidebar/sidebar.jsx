@@ -6,6 +6,7 @@ import { useState } from 'react';
 import BarItem from "./bar-content.jsx";
 
 
+
 const SideBar = () => {
   return (
     <S.Sidebar>
@@ -41,11 +42,11 @@ const SideBarItem = () => {
     setVisible(true);
   }, 3000);
   return (
-  BarItem.map((item) => {
+  BarItem.map((item) => { 
     return (
      
         <S.SidebarItem key={item.id}>
-              <S.SidebarLink href="#">
+              <S.SidebarLink to={`/category/${item.id}`}>
                 <S.SidebarImg 
                   
                   src={visible? item.barImg : "img/SkeletonPlaylist.png"}

@@ -1,16 +1,15 @@
 {
   "files": {
-    "main.css": "/static/css/main.fdaf6885.css",
-    "main.js": "/static/js/main.e2a36856.js",
+    "main.css": "/static/css/main.3d1d751c.css",
+    "main.js": "/static/js/main.3b1f0e65.js",
     "static/media/StratosSkyeng.woff": "/static/media/StratosSkyeng.d20eb275042a513c8d55.woff",
     "static/media/StratosSkyeng.woff2": "/static/media/StratosSkyeng.ec4882423f79afa46408.woff2",
-    "static/media/logo.svg": "/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
     "index.html": "/index.html",
-    "main.fdaf6885.css.map": "/static/css/main.fdaf6885.css.map",
-    "main.e2a36856.js.map": "/static/js/main.e2a36856.js.map"
+    "main.3d1d751c.css.map": "/static/css/main.3d1d751c.css.map",
+    "main.3b1f0e65.js.map": "/static/js/main.3b1f0e65.js.map"
   },
   "entrypoints": [
-    "static/css/main.fdaf6885.css",
-    "static/js/main.e2a36856.js"
+    "static/css/main.3d1d751c.css",
+    "static/js/main.3b1f0e65.js"
   ]
 }
