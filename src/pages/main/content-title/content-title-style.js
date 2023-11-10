@@ -24,7 +24,7 @@ export const PlaylistTitle = styled.div`
   color: #696969;
   text-transform: uppercase;
   width: ${props => props.width};
-  text-align : ${props => props.textAign}
+  text-align : ${props => props.textaign}
  
 `;
 export const PlaylistSvg = styled.svg`

@@ -8,8 +8,10 @@ import { useState } from 'react';
 
 
 
-const AutorizationUser = ({user, onAuthButtonClick}) => { 
+
+const AutorizationUser = ({user, handleLogin}) => { 
     const [selectedCategory, setVisible] = useState(null); 
+    console.log(user);
     
     return (
         <S.Container>
@@ -26,9 +28,9 @@ const AutorizationUser = ({user, onAuthButtonClick}) => {
                 </S.AutorizationInput>
                 <S.AutorizationButtonBox>
                     <ComeButton text="Войти" 
-                    onClick={onAuthButtonClick} 
+                    onClick={handleLogin} 
                     
-                    isOpen={selectedCategory === "come"} link={user ? "/" : ""}/>
+                    isOpen={selectedCategory === "come"} link="/"/>
                     <RegButton text="Зарегестрироваться"
                     onClick={() => {selectedCategory !== "reg" ? setVisible("reg") : setVisible(null)}}
                     isOpen={selectedCategory === "reg"} link="/register"/>
