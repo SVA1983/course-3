@@ -1,11 +1,11 @@
 import "../../../App"
 import { useState } from 'react';
-import AutorizationUser from "../../autorization/autorization";
+
 
 import * as S from './nav-burger-style.js'
 
 
-export const Burger = () => { 
+export const Burger = ({outLogin}) => { 
    const [visible, setVisible] = useState(false); 
   const MenuClick = () => 
     setVisible(!visible) ;
@@ -21,7 +21,7 @@ export const Burger = () => {
               <S.BurgerLine></S.BurgerLine>
               <S.BurgerLine></S.BurgerLine>
             </S.ButtonBurger>
-            {visible && < MenuBurger />}
+            {visible && < MenuBurger onClick={outLogin}/>}
             
     </S.Burger>
     
@@ -32,7 +32,7 @@ export const Burger = () => {
 export default Burger
 
 
-const MenuBurger = () => {
+const MenuBurger = (props) => {
   return (
     <S.NavMenu>
               <S.MenuList>
@@ -45,8 +45,8 @@ const MenuBurger = () => {
                   link="/favorites"/>
                 </S.MenuItem>
                 <S.MenuItem>
-                <MenuLink onClick={<AutorizationUser/>} item="Выйти"
-                  link="/login"/>
+                <MenuLink onClick={props.onClick} item="Выйти"
+                  link=""/>
                 </S.MenuItem>
               </S.MenuList>
             </S.NavMenu>

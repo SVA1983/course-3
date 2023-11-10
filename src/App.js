@@ -1,20 +1,27 @@
 
 import './App.css';
 import { AppRoutes } from './routes';
-import AutorizationUser from './pages/autorization/autorization';
 import { useState } from 'react';
 
-
 function App() { 
-  const [user, setUser] = useState(null);
+  const isAuth = localStorage.getItem("user") ? true : false;
+  const [user, setUser] = useState(isAuth);
+  
 
-  const handleLogin = () => setUser(true);
+  const handleLogin= () => {setUser(true);
+  localStorage.setItem("user", "user"); console.log(localStorage);
+}
+  const outLogin= () => {setUser(false); localStorage.clear(); console.log(localStorage);
+   
 
-  const handleLogout = () => setUser(null);
+  }; 
+  
+
+
 
   return (
     <div className="wrapper">
-      {user ? <AppRoutes user={user}/> : <AutorizationUser  user={user} onAuthButtonClick={handleLogin} />}
+      <AppRoutes handleLogin={handleLogin} outLogin={outLogin} user={user}/> 
       
     </div>
   );
