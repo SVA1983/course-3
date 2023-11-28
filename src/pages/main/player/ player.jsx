@@ -7,7 +7,7 @@ import React from 'react';
 
 
 
-const BarAudioPlayer = () => {
+const BarAudioPlayer = ({nameTrack, trackAuthor}) => {
   return (
   <S.Bar >
     <S.BarContent>
@@ -53,10 +53,10 @@ const BarAudioPlayer = () => {
                       </S.TrackPlayImage>
                       <S.TrackPlayAuthor>
                         <S.TrackPlayAuthorLink href="http://"
-                          >Ты та...</S.TrackPlayAuthorLink>
+                          >{nameTrack} </S.TrackPlayAuthorLink>
                       </S.TrackPlayAuthor>
                       <S.TrackPlayAlbum>
-                        <S.TrackPlayAlbumLink href="http://">Баста</S.TrackPlayAlbumLink>
+                        <S.TrackPlayAlbumLink href="http://">{trackAuthor}</S.TrackPlayAlbumLink>
                       </S.TrackPlayAlbum>
                     </S.TrackPlayContain>
 

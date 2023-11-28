@@ -8,14 +8,24 @@ import Content from './content/content';
 import Filter from './filter/filter';
 import TitleName from './title-name/title-name'
 import TitlePlaylist from './content-title/content-title';
+import { useState } from 'react';
 
 
 
-function Main({outLogin, user}) {
+function Main({outLogin, user, tracks, setTracks,}) {
+  const [nameTrack, setNameTrack] = useState(null);
+  const [trackAuthor, setTrackAuthor] = useState(null);
+
+
+  
+
+
  
-  return ( 
+  return (
+   
+     
     
-      <div className="container">
+     <div className="container">
         <main className="main">
         <Burger outLogin={outLogin} user={user}/>
         <div className="main__centerblock centerblock">
@@ -24,17 +34,17 @@ function Main({outLogin, user}) {
     < Filter />
     <div className="centerblock__content">
       < TitlePlaylist />
-      < Content />
+      < Content  tracks={tracks} setTracks={setTracks}  setTrackAuthor={setTrackAuthor} setNameTrack={setNameTrack}/>
     </div>
       </div>
         <SideBar />
         </main>
-         <BarAudioPlayer />
+         {nameTrack ? <BarAudioPlayer  nameTrack={nameTrack} trackAuthor={trackAuthor}/> : ""}
         <footer className="footer"></footer>
       </div>
       
-    
-  );
+      )
+  
 }
 
 export default Main;
