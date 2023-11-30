@@ -68,7 +68,7 @@ const PlaylistItems =  ({tracks,  setTrackAuthor, setNameTrack}) => {
             <S.TrackTimeSvg alt="time">
               <S.TrackLikeImg  xlinkHref="img/icon/sprite.svg#icon-like"></S.TrackLikeImg >
             </S.TrackTimeSvg>
-            <S.TimeText key={track.id}>{visible ? (track.duration_in_seconds / 60).toFixed(2) : ""}</S.TimeText>
+            <S.TimeText key={track.id}>{visible ? ((track.duration_in_seconds / 60) | 0) + ":" + ((track.duration_in_seconds % 60) | 0)  : ""}</S.TimeText>
           </S.TrackTime>
         </S.PlaylistTrack>
       </S.PlaylistItem>
