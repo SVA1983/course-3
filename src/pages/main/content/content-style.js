@@ -130,3 +130,11 @@ export const TimeText = styled.div`
  `;
 export const TrackLikeImg = styled.use`
 `;
+
+export const ErrorText = styled(PlaylistItem)`
+color: white;
+width: 100%;
+baground-color: white;
+height: 600px;
+
+`;

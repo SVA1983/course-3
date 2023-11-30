@@ -12,7 +12,7 @@ import { useState } from 'react';
 
 
 
-function Main({outLogin, user, tracks, setTracks,}) {
+function Main({outLogin, user, tracks, setTracks, addError}) {
   const [nameTrack, setNameTrack] = useState(null);
   const [trackAuthor, setTrackAuthor] = useState(null);
 
@@ -31,10 +31,10 @@ function Main({outLogin, user, tracks, setTracks,}) {
         <div className="main__centerblock centerblock">
          < Search />
          < TitleName />
-    < Filter />
+    < Filter tracks={tracks}/>
     <div className="centerblock__content">
       < TitlePlaylist />
-      < Content  tracks={tracks} setTracks={setTracks}  setTrackAuthor={setTrackAuthor} setNameTrack={setNameTrack}/>
+      < Content  tracks={tracks} setTracks={setTracks}  setTrackAuthor={setTrackAuthor} setNameTrack={setNameTrack} addError={addError}/>
     </div>
       </div>
         <SideBar />

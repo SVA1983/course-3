@@ -7,13 +7,16 @@ function App() {
   const isAuth = localStorage.getItem("user") ? true : false;
   const [user, setUser] = useState(isAuth);
   const [tracks, setTracks] = useState([]);
-  // const [addTodoError, setAddTodoError] = useState(null);
+  const [addError, setAddError] = useState(null);
 
 
   useEffect(() => {
-    getTrack().then((tracks) => {
+    getTrack().then((tracks) => { 
       setTracks(tracks);
-    });
+    }).catch((error) => {
+      setAddError(error)
+      
+    });;
   }, []);
 
 
@@ -37,6 +40,7 @@ function App() {
         setTracks={setTracks}
         outLogin={outLogin}
         user={user}
+        addError={addError}
       />
     </div>
   );

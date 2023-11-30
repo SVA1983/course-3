@@ -2,23 +2,26 @@ import "../../../App"
 import React from 'react';
 import { useState } from 'react';
 import users from "../content/content-item.js";
+
+
 import * as S from "./filter-style.js";
 
 
 
-const Filter = () => {
+const Filter = ({tracks}) => {
   const [selectedCategory, setVisible] = useState(null); 
+  
  
   return (
     <S.CentrblockFilter>
         <S.ContentFilterTitle >Искать по:</S.ContentFilterTitle >
-        <AutorFilter autor="исполнителю"
-        onClick={() => {selectedCategory !== "autor" ? setVisible("autor") : setVisible(null)}}
-        isOpen={selectedCategory === "autor"}/>
-        <YearFilter year="году выпуска"
+        <AuthorFilter Author="исполнителю" tracks={tracks}
+        onClick={() => {selectedCategory !== "Author" ? setVisible("Author") : setVisible(null)}}
+        isOpen={selectedCategory === "Author"}/>
+        <YearFilter year="году выпуска" tracks={tracks}
         onClick={() => {selectedCategory !== "year" ? setVisible("year") : setVisible(null)}}
         isOpen={selectedCategory === "year"}/>
-        <GenreFilter genre="жанру"
+        <GenreFilter genre="жанру" tracks={tracks}
         onClick={() => {selectedCategory !== "genre" ? setVisible("genre") : setVisible(null)}}
         isOpen={selectedCategory === "genre"}/>
     </S.CentrblockFilter>
@@ -28,13 +31,13 @@ const Filter = () => {
 
 export default Filter
 
-const AutorFilter = (props) => {
+const AuthorFilter = (props) => {console.log(props.tracks);
   
   return (
     <S.FilterButton  activecolor={props.isOpen ? "#B672FF" : ""} 
     activeborder={props.isOpen ? "1px solid #B672FF" : "" } onClick={props.onClick}>
-        {props.autor}
-        {props.isOpen && <AutorItemList/> } 
+        {props.Author}
+        {props.isOpen && <AuthorItemList tracks={props.tracks}/> } 
       </S.FilterButton> 
   )
 }
@@ -44,7 +47,7 @@ const YearFilter = (props) => {
     <S.FilterButton  activecolor={props.isOpen ? "#B672FF" : ""} 
     activeborder={props.isOpen ? "1px solid #B672FF" : "" } onClick={props.onClick}>
         {props.year}
-        {props.isOpen && <YearItemList/> }
+        {props.isOpen && <YearItemList tracks={props.tracks}/> }
       </S.FilterButton > 
   )
 }
@@ -52,36 +55,30 @@ const GenreFilter = (props) => {
   return (
     <S.FilterButton  activecolor={props.isOpen ? "#B672FF" : ""} 
     activeborder={props.isOpen ? "1px solid #B672FF" : "" } onClick={props.onClick}>{props.genre}
-    {props.isOpen && <GenreItemList/>}
+    {props.isOpen && <GenreItemList tracks={props.tracks}/>}
     </S.FilterButton>
     
       
   )
 }
 
-const AutorItemList = () => {
+const AuthorItemList = ({tracks}) => { console.log(tracks);
   return ( 
-        <S.ItemAutorList>
-                  <S.AutorList>
-                    <S.AutorItem>
-                    <AutorArr/>
-                    </S.AutorItem>
-                  </S.AutorList>
-          </S.ItemAutorList>
+        <S.ItemAuthorList>
+                  <S.AuthorList>
+                    <S.AuthorItem>
+                    <AuthorArr tracks={tracks}/>
+                    </S.AuthorItem>
+                  </S.AuthorList>
+          </S.ItemAuthorList>
       )
 }
-const YearItemList = () => {
+const YearItemList = ({tracks}) => {
   return (
     <S.YearList>
               <S.YearItem>
                 <S.YearItemEl>
-                  <S.FilterLink>1993</S.FilterLink>
-                </S.YearItemEl>
-                <S.YearItemEl>
-                  <S.FilterLink>1994</S.FilterLink>
-                </S.YearItemEl>
-                <S.YearItemEl>
-                  <S.FilterLink>1995</S.FilterLink>
+                 <YearArr tracks={tracks}/>
                 </S.YearItemEl>
               </S.YearItem>
             </S.YearList>
@@ -89,15 +86,15 @@ const YearItemList = () => {
   )
 }
 
-const GenreItemList = () => {
+const GenreItemList = ({tracks}) => {
   return (
   
       <S.GenreItemList>
-                <S.AutorList>
+                <S.AuthorList>
                   <S.GenreItem>
-                  <GenreArr/>
+                  <GenreArr tracks={tracks}/>
                   </S.GenreItem>
-                </S.AutorList>
+                </S.AuthorList>
               </S.GenreItemList>
   
   )
@@ -105,22 +102,32 @@ const GenreItemList = () => {
  
   
 }
-const AutorArr = () => {
+const AuthorArr = ({tracks}) => {
   return (
-    users.map((user) => {
+    tracks.map((track) => {
       return ( 
-        <S.FilterLink key={user.id}>{user.autorName}</S.FilterLink>
+        <S.FilterLink key={track.id}>{track.author}</S.FilterLink>
       )
     })
   )
   
 }
 
-const GenreArr = () => {
+const GenreArr = ({tracks}) => {
+  return (
+    tracks.map((track) => {
+      return ( 
+        <S.FilterLink key={track.id}>{track.genre}</S.FilterLink>
+      )
+    })
+  )
+  
+}
+const YearArr = () => {
   return (
     users.map((user) => {
       return ( 
-        <S.FilterLink key={user.id}>{user.genre}</S.FilterLink>
+        <S.FilterLink key={user.id}>{user.year}</S.FilterLink>
       )
     })
   )

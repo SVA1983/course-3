@@ -9,13 +9,13 @@ import 'react-loading-skeleton/dist/skeleton.css'
 
 
 
-const Content = ({tracks, setTracks,  setTrackAuthor, setNameTrack}) => {
+const Content = ({tracks, setTracks,  setTrackAuthor, setNameTrack, addError}) => {
   
   
  
   return (
     <S.ContentPlaylist>
-        <PlaylistItems tracks={tracks} setTracks={setTracks} setTrackAuthor={setTrackAuthor} setNameTrack={setNameTrack}/>
+        {addError ? <ErrorMessage addError={addError}/> : <PlaylistItems tracks={tracks} setTracks={setTracks} setTrackAuthor={setTrackAuthor} setNameTrack={setNameTrack} addError={addError}/>}
       </S.ContentPlaylist>
   )       
 }; 
@@ -68,7 +68,7 @@ const PlaylistItems =  ({tracks,  setTrackAuthor, setNameTrack}) => {
             <S.TrackTimeSvg alt="time">
               <S.TrackLikeImg  xlinkHref="img/icon/sprite.svg#icon-like"></S.TrackLikeImg >
             </S.TrackTimeSvg>
-            <S.TimeText key={track.id}>{visible ? track.duration_in_seconds : ""}</S.TimeText>
+            <S.TimeText key={track.id}>{visible ? (track.duration_in_seconds / 60).toFixed(2) : ""}</S.TimeText>
           </S.TrackTime>
         </S.PlaylistTrack>
       </S.PlaylistItem>
@@ -76,5 +76,13 @@ const PlaylistItems =  ({tracks,  setTrackAuthor, setNameTrack}) => {
     
     </S.ContentPlaylist>)
     })
+  )
+}
+
+const ErrorMessage = ({addError}) => {
+  return (
+    <S.ErrorText>
+      Не удалось загрузить плейлист, попробуйте позже: {addError.message}
+    </S.ErrorText>
   )
 }
