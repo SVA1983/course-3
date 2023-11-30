@@ -7,6 +7,7 @@ const users = [
         trackTime: "4:44",
         genre: "Рок",
         id: 1,
+        year: 1990
     },
     {
         trackImg: "img/icon/sprite.svg#icon-note",
@@ -16,6 +17,7 @@ const users = [
         trackTime: "2:22",
         genre: "Поп",
         id: 2,
+        year: 1991
     },
     {
         trackImg: "img/icon/sprite.svg#icon-note",
@@ -25,6 +27,7 @@ const users = [
         trackTime: "2:22",
         genre: "Классика",
         id: 3,
+        year: 1992,
     },
     {
         trackImg: "img/icon/sprite.svg#icon-note",
@@ -35,6 +38,7 @@ const users = [
         trackTime: "4:12",
         genre: "Детское",
         id: 4,
+        year: 1993
 
     },
     {

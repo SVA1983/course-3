@@ -38,7 +38,7 @@ padding: 6px 20px;
 color: ${props => props.activecolor};
 border: ${props => props.activeborder};
 `;
-export const ItemAutorList = styled.div`
+export const ItemAuthorList = styled.div`
   width: 300px;
   height: 305px;
   top: 288px;
@@ -52,9 +52,9 @@ export const ItemAutorList = styled.div`
   flex-direction: column;
   overflow: scroll;
 `;
-export const AutorList = styled.ul`
+export const AuthorList = styled.ul`
 `;
-export const AutorItem = styled.li`
+export const AuthorItem = styled.li`
     display: flex;
     flex-direction: column;
     gap: 24px;

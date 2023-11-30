@@ -1,28 +1,47 @@
+import "./App.css";
+import { AppRoutes } from "./routes";
+import { useState, useEffect } from "react";
+import { getTrack } from "./api";
 
-import './App.css';
-import { AppRoutes } from './routes';
-import { useState } from 'react';
-
-function App() { 
+function App() {
   const isAuth = localStorage.getItem("user") ? true : false;
   const [user, setUser] = useState(isAuth);
-  
+  const [tracks, setTracks] = useState([]);
+  const [addError, setAddError] = useState(null);
 
-  const handleLogin= () => {setUser(true);
-  localStorage.setItem("user", "user"); console.log(localStorage);
-}
-  const outLogin= () => {setUser(false); localStorage.clear(); console.log(localStorage);
-   
 
-  }; 
-  
+  useEffect(() => {
+    getTrack().then((tracks) => { 
+      setTracks(tracks);
+    }).catch((error) => {
+      setAddError(error)
+      
+    });;
+  }, []);
 
+
+  const handleLogin = () => {
+    setUser(true);
+    localStorage.setItem("user", "user");
+    console.log(localStorage);
+  };
+  const outLogin = () => {
+    setUser(false);
+    localStorage.clear();
+    console.log(localStorage);
+  };
 
 
   return (
     <div className="wrapper">
-      <AppRoutes handleLogin={handleLogin} outLogin={outLogin} user={user}/> 
-      
+      <AppRoutes
+        handleLogin={handleLogin}
+        tracks={tracks}
+        setTracks={setTracks}
+        outLogin={outLogin}
+        user={user}
+        addError={addError}
+      />
     </div>
   );
 }

@@ -4,61 +4,71 @@ import { useState } from 'react';
 import React from 'react';
 import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css'
-import users from "./content-item.js";
 
 
 
 
-const Content = () => {
+
+const Content = ({tracks, setTracks,  setTrackAuthor, setNameTrack, addError}) => {
+  
+  
+ 
   return (
     <S.ContentPlaylist>
-        <PlaylistItems />
+        {addError ? <ErrorMessage addError={addError}/> : <PlaylistItems tracks={tracks} setTracks={setTracks} setTrackAuthor={setTrackAuthor} setNameTrack={setNameTrack} addError={addError}/>}
       </S.ContentPlaylist>
   )       
 }; 
 
 export default Content
 
-const PlaylistItems = () => { 
+const PlaylistItems =  ({tracks,  setTrackAuthor, setNameTrack}) => { 
   const [visible, setVisible] = useState(false); 
+  
+
   setTimeout(() => {
-    setVisible(true);
-  }, 3000);
+    setVisible(tracks);
+  }, 3000); 
+ 
   return (
-    users.map((user) => {
+    tracks.map((track) => {  
+      const playTracks = () => {
+        setTrackAuthor(track.author);
+        setNameTrack(track.name)
+      };
       return (
       <S.ContentPlaylist>
-      <S.PlaylistItem>
+      <S.PlaylistItem >
         <S.PlaylistTrack>
           <S.TrackTitle>
             <S.TrackTitleImg >
               <S.TrackTitleSvg alt="music">
-                <S.TrackImg key={user.id} xlinkHref={user.trackImg}></S.TrackImg>
+                <S.TrackImg  xlinkHref={track.logo}></S.TrackImg>
               </S.TrackTitleSvg>
             </S.TrackTitleImg >
             <S.TrackTitleText>
-              <S.TrackTitleLink href="http://" key={user.id}
-                >{visible ? user.trackName : <Skeleton  SkeletonTheme  baseColor="#202020" highlightColor="#444" width={200}/>}
-                <S.TrackDiscription>{visible ? user.description : ""}
-                </S.TrackDiscription>
+              <S.TrackTitleLink  onClick={playTracks}
+                >{visible ? track.name : <Skeleton  SkeletonTheme  baseColor="#202020" highlightColor="#444" width={200}/>}
+                {/* <S.TrackDiscription>{visible ? track.name : ""}
+                </S.TrackDiscription> */}
               </S.TrackTitleLink>
             </S.TrackTitleText>
           </S.TrackTitle>
           <S.TrackAutor>
-            <S.TrackAutorLink href="http://" key={user.id}>
-              {visible ? user.autorName : <Skeleton SkeletonTheme baseColor="#202020" highlightColor="#444" width={200}/>}
+            <S.TrackAutorLink href="http://" >
+              {visible ? track.author : <Skeleton SkeletonTheme baseColor="#202020" highlightColor="#444" width={200}/>}
               </S.TrackAutorLink>
           </S.TrackAutor>
           <S.TrackAlbum>
-            <S.TrackAlbumLink href="http://" key={user.id}
-              >{visible ? user.albumName : <Skeleton SkeletonTheme baseColor="#202020" highlightColor="#444" width={310}/>}
+            <S.TrackAlbumLink href="http://" 
+              >{visible ? track.album : <Skeleton SkeletonTheme baseColor="#202020" highlightColor="#444" width={310}/>}
               </S.TrackAlbumLink>
           </S.TrackAlbum>
           <S.TrackTime>
             <S.TrackTimeSvg alt="time">
               <S.TrackLikeImg  xlinkHref="img/icon/sprite.svg#icon-like"></S.TrackLikeImg >
             </S.TrackTimeSvg>
-            <S.TimeText key={user.id}>{visible ? user.trackTime : ""}</S.TimeText>
+            <S.TimeText key={track.id}>{visible ? (track.duration_in_seconds / 60).toFixed(2) : ""}</S.TimeText>
           </S.TrackTime>
         </S.PlaylistTrack>
       </S.PlaylistItem>
@@ -66,5 +76,13 @@ const PlaylistItems = () => {
     
     </S.ContentPlaylist>)
     })
+  )
+}
+
+const ErrorMessage = ({addError}) => {
+  return (
+    <S.ErrorText>
+      Не удалось загрузить плейлист, попробуйте позже: {addError.message}
+    </S.ErrorText>
   )
 }

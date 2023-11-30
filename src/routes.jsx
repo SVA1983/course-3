@@ -6,8 +6,8 @@ import FavoritesUser from "./pages/favorites/favorites";
 import Category from "./pages/category/category";
 import { NotFound } from "./pages/not-found";
 import { ProtectedRoute } from "./pages/protected-route/protected";
-export const AppRoutes = ({user, handleLogin, outLogin}) => {
-  console.log(user);
+export const AppRoutes = ({user, handleLogin, outLogin, tracks, setTracks, addError}) => { 
+
   return (
     <Routes>
       <Route
@@ -16,7 +16,7 @@ export const AppRoutes = ({user, handleLogin, outLogin}) => {
       />
       <Route path="/register" element={<RegistrationUser />} />
       <Route element={<ProtectedRoute isAllowed={user} />}>
-        <Route path="/" element={<Main outLogin={outLogin} user={user}/>} />
+        <Route path="/" element={<Main outLogin={outLogin} user={user} tracks={tracks} setTracks={setTracks} addError={addError}/>} />
         <Route path="/favorites" element={<FavoritesUser />} />
         <Route path="/category/:id" element={<Category />} />
         <Route path="*" element={<NotFound />} />
