@@ -37,7 +37,7 @@ const PlaylistItems =  ({tracks,  setTrackAuthor, setNameTrack}) => {
         setNameTrack(track.name)
       };
       return (
-      <S.ContentPlaylist>
+      <S.ContentPlaylist key={track.id}>
       <S.PlaylistItem >
         <S.PlaylistTrack>
           <S.TrackTitle>
