@@ -31,7 +31,7 @@ const Filter = ({tracks}) => {
 
 export default Filter
 
-const AuthorFilter = (props) => {console.log(props.tracks);
+const AuthorFilter = (props) => {
   
   return (
     <S.FilterButton  activecolor={props.isOpen ? "#B672FF" : ""} 
@@ -62,7 +62,7 @@ const GenreFilter = (props) => {
   )
 }
 
-const AuthorItemList = ({tracks}) => { console.log(tracks);
+const AuthorItemList = ({tracks}) => { 
   return ( 
         <S.ItemAuthorList>
                   <S.AuthorList>
