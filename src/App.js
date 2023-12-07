@@ -42,6 +42,7 @@ function App() {
         user={user}
         addError={addError}
       />
+    
     </div>
   );
 }
