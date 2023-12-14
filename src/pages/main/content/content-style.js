@@ -138,3 +138,6 @@ baground-color: white;
 height: 600px;
 
 `;
+export const Audio = styled.audio`
+display: none;
+`;

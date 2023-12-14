@@ -286,3 +286,6 @@ export const VolumeIcon = styled.use`
 export const VolumeProgressLine = styled.input`
   width: 109px;   
 `;
+export const Audio = styled.audio`
+display: none;
+`;
