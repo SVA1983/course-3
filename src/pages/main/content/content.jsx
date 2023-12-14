@@ -1,6 +1,6 @@
 import "../../../App";
 import * as S from "./content-style.js";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import React from "react";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
@@ -14,7 +14,7 @@ const Content = ({
   setAudioPlay,
   setClickPlayer,
   audioRef,
-  audioPlay
+  audioPlay,
 }) => {
   return (
     <S.ContentPlaylist>
@@ -46,36 +46,24 @@ const PlaylistItems = ({
   setAudioPlay,
   setClickPlayer,
   audioRef,
-  audioPlay
+  audioPlay,
 }) => {
   const [visible, setVisible] = useState(false);
 
   setTimeout(() => {
     setVisible(tracks);
   }, 3000);
-  
 
   return tracks.map((track) => {
-    
     const PlayTracks = () => {
       setAudioPlay(track.track_file);
-      audioRef.current.play();
       setTrackAuthor(track.author);
       setNameTrack(track.name);
       setClickPlayer(true);
-      console.log(audioPlay);
-      
-      
     };
 
-    
-
-    return ( 
-       
+    return (
       <S.ContentPlaylist key={track.id}>
-          <S.Audio controls ref={audioRef}>
-                <source src={audioPlay} type="audio/mpeg" />
-              </S.Audio>
         <S.PlaylistItem>
           <S.PlaylistTrack>
             <S.TrackTitle>

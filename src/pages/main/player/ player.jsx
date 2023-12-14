@@ -1,30 +1,15 @@
 import "../../../App";
 import * as S from "./player-style.js";
 import React from "react";
-import { useEffect } from "react";
 
 const BarAudioPlayer = ({
   nameTrack,
   trackAuthor,
   clickPlayer,
-  // handleClick,
+  handleClick,
   audioPlay,
   audioRef,
-  setClickPlayer,
-  setAudioPlay
 }) => {
-  const handleClick = () => {
-    if (!clickPlayer) {
-      setClickPlayer(true);
-      audioRef.current.play();
-    }
-    if (clickPlayer) {
-      setClickPlayer(false);
-      audioRef.current.pause();
-    }
-  };
- 
-
   return (
     <S.Bar>
       <S.BarContent>
