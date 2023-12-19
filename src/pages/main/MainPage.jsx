@@ -15,16 +15,18 @@ function Main({ outLogin, user, tracks, setTracks, addError }) {
   const [clickPlayer, setClickPlayer] = useState(null);
   const [audioPlay, setAudioPlay] = useState(null);
   const audioRef = useRef(null);
-  const ref = audioRef;
-  console.log(ref);
+  // const [currentTime, setCurrentTime] = useState(70);
+  // const [duration, setDuration] = useState(0);
 
   useEffect(() => {
     if (audioPlay) {
+      audioRef.current.src = audioPlay;
       setClickPlayer(true);
       audioRef.current.play();
+      console.log(audioRef.current.currentTime);
+      console.log(audioRef.current.duration);
     }
-    return;
-  }, [audioPlay]);
+  }, [audioPlay, audioRef]);
 
   const handleClick = () => {
     if (!clickPlayer) {
@@ -37,7 +39,7 @@ function Main({ outLogin, user, tracks, setTracks, addError }) {
       setAudioPlay(null);
     }
   };
-  // useEffect(handleClick, [setAudioPlay])
+  const repeatClick = () => {};
 
   return (
     <div className="container">
@@ -59,6 +61,7 @@ function Main({ outLogin, user, tracks, setTracks, addError }) {
               setAudioPlay={setAudioPlay}
               setClickPlayer={setClickPlayer}
               audioPlay={audioPlay}
+              // setDuration={setDuration}
             />
           </div>
         </div>
@@ -72,6 +75,10 @@ function Main({ outLogin, user, tracks, setTracks, addError }) {
           handleClick={handleClick}
           audioPlay={audioPlay}
           audioRef={audioRef}
+          repeatClick={repeatClick}
+          // currentTime={currentTime}
+          // setCurrentTime={setCurrentTime}
+          // duration={duration}
         />
       ) : (
         ""
