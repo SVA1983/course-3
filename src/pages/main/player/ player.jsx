@@ -1,19 +1,30 @@
 import "../../../App";
 import * as S from "./player-style.js";
 import React from "react";
+import { ProgressInput } from "./progress-bar.jsx";
+
 
 const BarAudioPlayer = ({
   nameTrack,
   trackAuthor,
   clickPlayer,
   handleClick,
-  audioPlay,
   audioRef,
+  repeatClick,
+  currentTime,
+  setCurrentTime,
+  duration
+
 }) => {
+
+ 
   return (
     <S.Bar>
       <S.BarContent>
-        <S.BarPlayerProgress></S.BarPlayerProgress>
+        <ProgressInput 
+          currentTime={currentTime}
+          setCurrentTime={setCurrentTime}
+          duration={duration}/>
         <S.BarPlayerBlock>
           <S.BarPlayer>
             <S.PlayerControls>
@@ -22,8 +33,8 @@ const BarAudioPlayer = ({
                   <S.SvgImg xlinkHref="img/icon/sprite.svg#icon-prev"></S.SvgImg>
                 </S.PlayerPrevSvg>
               </S.PlayerControlsBtnPrev>
-              <S.Audio controls ref={audioRef}>
-                <source src={audioPlay} type="audio/mpeg" />
+              <S.Audio controls ref={audioRef} >
+                <source type="audio/mpeg" />
               </S.Audio>
               <S.PlayerControlsBtnPlay onClick={handleClick}>
                 <S.PlaySvg alt="play">
@@ -42,7 +53,7 @@ const BarAudioPlayer = ({
                 </S.PlayerNextSvg>
               </S.PlayerControlsBtnNext>
               <S.PlayerControlsBtnRepeat>
-                <S.PlayerRepeattSvg alt="repeat">
+                <S.PlayerRepeattSvg alt="repeat" onClick={repeatClick}>
                   <S.PlayerRepeatIcon xlinkHref="img/icon/sprite.svg#icon-repeat"></S.PlayerRepeatIcon>
                 </S.PlayerRepeattSvg>
               </S.PlayerControlsBtnRepeat>
@@ -105,3 +116,5 @@ const BarAudioPlayer = ({
 };
 
 export default BarAudioPlayer;
+
+

@@ -15,6 +15,8 @@ const Content = ({
   setClickPlayer,
   audioRef,
   audioPlay,
+  setDuration
+
 }) => {
   return (
     <S.ContentPlaylist>
@@ -31,6 +33,8 @@ const Content = ({
           setClickPlayer={setClickPlayer}
           audioRef={audioRef}
           audioPlay={audioPlay}
+          setDuration={setDuration}
+          
         />
       )}
     </S.ContentPlaylist>
@@ -45,8 +49,9 @@ const PlaylistItems = ({
   setNameTrack,
   setAudioPlay,
   setClickPlayer,
-  audioRef,
-  audioPlay,
+  setDuration
+  
+ 
 }) => {
   const [visible, setVisible] = useState(false);
 
@@ -60,6 +65,7 @@ const PlaylistItems = ({
       setTrackAuthor(track.author);
       setNameTrack(track.name);
       setClickPlayer(true);
+      // setDuration(track.duration_in_seconds)
     };
 
     return (
