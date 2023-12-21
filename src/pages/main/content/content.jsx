@@ -49,7 +49,9 @@ const PlaylistItems = ({
   setNameTrack,
   setAudioPlay,
   setClickPlayer,
-  setDuration
+  setDuration,
+  audioRef,
+  audioPlay
   
  
 }) => {
@@ -65,6 +67,7 @@ const PlaylistItems = ({
       setTrackAuthor(track.author);
       setNameTrack(track.name);
       setClickPlayer(true);
+      
       // setDuration(track.duration_in_seconds)
     };
 

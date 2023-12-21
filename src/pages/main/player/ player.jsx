@@ -4,6 +4,8 @@ import React from "react";
 import { ProgressInput } from "./progress-bar.jsx";
 
 
+
+
 const BarAudioPlayer = ({
   nameTrack,
   trackAuthor,
@@ -11,20 +13,18 @@ const BarAudioPlayer = ({
   handleClick,
   audioRef,
   repeatClick,
-  currentTime,
-  setCurrentTime,
-  duration
-
 }) => {
-
+  
+  
+ 
+  
  
   return (
     <S.Bar>
       <S.BarContent>
         <ProgressInput 
-          currentTime={currentTime}
-          setCurrentTime={setCurrentTime}
-          duration={duration}/>
+          
+          audioRef={audioRef}/>
         <S.BarPlayerBlock>
           <S.BarPlayer>
             <S.PlayerControls>
