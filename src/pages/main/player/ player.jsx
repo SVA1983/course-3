@@ -2,9 +2,8 @@ import "../../../App";
 import * as S from "./player-style.js";
 import React from "react";
 import { ProgressInput } from "./progress-bar.jsx";
-
-
-
+import { useState } from "react";
+import { VolumeControl } from "./volume-progress.jsx";
 
 const BarAudioPlayer = ({
   nameTrack,
@@ -13,18 +12,19 @@ const BarAudioPlayer = ({
   handleClick,
   audioRef,
   repeatClick,
+  setClickPlayer,
 }) => {
-  
-  
- 
-  
- 
+  const [timeProgress, setTimeProgress] = useState(0);
+
   return (
     <S.Bar>
       <S.BarContent>
-        <ProgressInput 
-          
-          audioRef={audioRef}/>
+        <ProgressInput
+          setClickPlayer={setClickPlayer}
+          timeProgress={timeProgress}
+          setTimeProgress={setTimeProgress}
+          audioRef={audioRef}
+        />
         <S.BarPlayerBlock>
           <S.BarPlayer>
             <S.PlayerControls>
@@ -33,7 +33,13 @@ const BarAudioPlayer = ({
                   <S.SvgImg xlinkHref="img/icon/sprite.svg#icon-prev"></S.SvgImg>
                 </S.PlayerPrevSvg>
               </S.PlayerControlsBtnPrev>
-              <S.Audio controls ref={audioRef} >
+              <S.Audio
+                controls
+                ref={audioRef}
+                onTimeUpdate={() =>
+                  setTimeProgress(audioRef.current.currentTime)
+                }
+              >
                 <source type="audio/mpeg" />
               </S.Audio>
               <S.PlayerControlsBtnPlay onClick={handleClick}>
@@ -104,9 +110,7 @@ const BarAudioPlayer = ({
                   <S.VolumeIcon xlinkHref="img/icon/sprite.svg#icon-volume"></S.VolumeIcon>
                 </S.VolumeSvg>
               </S.VolumeImg>
-              <S.VolumeProgress>
-                <S.VolumeProgressLine type="range" name="range" />
-              </S.VolumeProgress>
+              <VolumeControl audioRef={audioRef} />
             </S.VolumeContent>
           </S.BarVolumeBlock>
         </S.BarPlayerBlock>
@@ -116,5 +120,3 @@ const BarAudioPlayer = ({
 };
 
 export default BarAudioPlayer;
-
-
